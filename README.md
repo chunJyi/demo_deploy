@@ -1,6 +1,6 @@
 # Simple CRUD REST API
 
-A production-ready Spring Boot CRUD API for Items, deployable to Koyeb.
+A production-ready Spring Boot CRUD API for Items, deployable to Railway.
 
 ## Tech Stack
 
@@ -48,17 +48,18 @@ curl -X POST http://localhost:8080/api/items \
   -d '{"name": "My Item", "description": "A test item"}'
 ```
 
-## Deploy to Koyeb
+## Deploy to Railway
 
 1. Push this repo to GitHub
-2. Go to [Koyeb Dashboard](https://app.koyeb.com)
-3. Click **Create App** → **GitHub** → select your repo
-4. Koyeb auto-detects the Dockerfile
-5. In **Environment Variables**, add as secrets:
-   - `DATABASE_URL` — your Neon Postgres connection string
+2. Go to [Railway Dashboard](https://railway.app)
+3. Click **New Project** → **Deploy from GitHub Repo** → select your repo
+4. Railway auto-detects the Dockerfile and builds the image
+5. In **Variables** tab, add:
+   - `DATABASE_URL` — your Postgres connection string
    - `DATABASE_USERNAME` — your DB username
    - `DATABASE_PASSWORD` — your DB password
-6. Click **Deploy**
+6. Railway provisions a public URL automatically
+7. Deploy
 
 ## Run with Docker
 
@@ -70,4 +71,3 @@ docker run -p 8080:8080 \
   -e DATABASE_PASSWORD="pass" \
   demo-api
 ```
-# demo_deploy
